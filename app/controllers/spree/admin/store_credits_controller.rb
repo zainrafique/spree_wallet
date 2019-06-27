@@ -2,8 +2,8 @@ module Spree
   module Admin
     class StoreCreditsController < ResourceController
       helper_method :store_credit_class
-      skip_before_filter :load_resource, :only => [:index]
-      before_filter :disable_negative_payment_mode, :add_transactioner_to_store_credit, :only => :create
+      skip_before_action :load_resource, :only => [:index]
+      before_action :disable_negative_payment_mode, :add_transactioner_to_store_credit, :only => :create
 
       def index
         @search = association_or_class.order_created_at_desc.ransack(params[:q])
