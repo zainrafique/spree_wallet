@@ -1,7 +1,4 @@
 source 'https://rubygems.org'
-gem 'rails',   '4.2.4'
-gem 'mysql2',  '~> 0.3.18'
-gem 'rake', '10.5.0'
 group :test do
   gem 'simplecov',               '~> 0.10.0'
   gem 'rspec-rails',             '~> 3.3.3'
@@ -13,6 +10,6 @@ group :test do
   gem 'rspec-activemodel-mocks', '~> 1.0.3'
 end
 
-gem 'spree',             github: 'spree/spree',             branch: '3-0-stable'
-gem 'spree_auth_devise', github: 'spree/spree_auth_devise', branch: '3-0-stable'
+gem 'spree', '~> 3.7.0'
+gem 'spree_auth_devise', '~> 3.5'
 gemspec
