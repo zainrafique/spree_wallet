@@ -49,7 +49,8 @@ Spree::Payment.class_eval do
         amount: amount,
         payment_mode: Spree::Debit::PAYMENT_MODE['Order Purchase'],
         reason: Spree.t(:store_debit_reason, order_number: order.number),
-        user: order_user_or_by_email, balance: calculate_balance(amount)
+        user: order_user_or_by_email, balance: calculate_balance(amount),
+        transactioner: order_user_or_by_email
       )
     end
 
@@ -58,7 +59,8 @@ Spree::Payment.class_eval do
         amount: amount,
         payment_mode: Spree::Credit::PAYMENT_MODE['Payment Refund'],
         reason: Spree.t(:store_credit_reason, order_number: order.number),
-        user: order_user_or_by_email, balance: calculate_balance(amount)
+        user: order_user_or_by_email, balance: calculate_balance(amount),
+        transactioner: order_user_or_by_email
       )
     end
 
