@@ -104,7 +104,7 @@ Spree::Order.class_eval do
   end
 
   def wallet_payment_attributes(payment_attributes)
-    payment_attributes.select { |payment| payment["payment_method_id"] == Spree::PaymentMethod::Wallet.first.id.to_s }
+    payment_attributes.select { |payment| payment["payment_method_id"] == Spree::PaymentMethod::Wallet.first&.id.to_s }
   end
 
   def non_wallet_payment_attributes(payment_attributes)
